@@ -10,7 +10,7 @@ from requests.auth import HTTPBasicAuth
 
 root = "https://api.challenge.hennge.com/challenges/003"
 content_type = "application/json"
-userid = "hussain.almahmud1@outlook.com"
+userid = "youremail@gmail.com"
 secret_suffix = "HENNGECHALLENGE003"
 shared_secret = userid+secret_suffix
 
@@ -42,7 +42,7 @@ def TOTP(K, digits=10, timeref = 0, timestep = 30):
     C = int ( time.time() - timeref ) // timestep
     return HOTP(K, C, digits = digits)
 
-data = { "github_url": "https://gist.github.com/hennge/b859bd12e7a7fb418141", "contact_email": "hussain.almahmud1@outlook.com", "solution_language": "python" }
+data = { "github_url": "PUT_URL_HERE", "contact_email": "PUT_Email_HERE", "solution_language": "python" }
 
 passwd = TOTP(shared_secret, 10, T0, timestep).zfill(10) 
 resp = requests.post(root, auth=HTTPBasicAuth(userid, passwd), data=json.dumps(data))
