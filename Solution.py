@@ -1,18 +1,18 @@
 output_buf = []
 
 def main():
-    Test_cases = int(input()) # Insert test cases
+    Test_cases = int(input()) # Get Number of test cases
     test_case(Test_cases)
-    print_output(Test_cases)
+    print_output(Test_cases) # print values if done
 
 def test_case(n):
     if n == 0:
         return 0
-    num = int(input()) # Total Number
-    value_str = input() # Numbers to be squared
+    num = int(input()) # Get Total Numbers to be entered 
+    value_str = input() # Get the actual Numbers to be squared
     values = value_str.split()
     
-    output_buf.insert(0, square(num, values))
+    output_buf.insert(0, square(num, values)) # insert the answer at index zero.
     test_case(n-1)
 
 def square(n, values):
